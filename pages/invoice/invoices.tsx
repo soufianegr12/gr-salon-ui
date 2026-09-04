@@ -6,8 +6,10 @@ import InvoicesForm from './invoiceForm';
 import Review from './review';
 import PdfGenerator from './PdfGenerator';
 
-
 const Invoices: FC = () => {
+  const [lang, setLang] = useState('en');
+  const [theme, setTheme] = useState('light');
+
   const [formData, setFormData] = useState<FormData>({
     companyId: '66ad228908e3c02ba9163148',
     billdate: new Date(),
@@ -49,9 +51,9 @@ const Invoices: FC = () => {
   const prevStep = () => setStep(step - 1);
 
   return (
-    <div>
-      <Navbar />
-      <div className="w-full sm:w-3/4 mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      <Navbar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
+      <div className="w-full sm:w-3/4 mx-auto p-6 bg-white shadow-md rounded-lg my-12">
         {step === 1 && (
           <InvoicesForm formData={formData} setFormData={setFormData} nextStep={nextStep} />
         )}
@@ -62,7 +64,7 @@ const Invoices: FC = () => {
           <PdfGenerator formData={formData} prevStep={prevStep} />
         )}
       </div>
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 };
