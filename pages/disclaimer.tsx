@@ -1,11 +1,21 @@
+import React, { useState } from 'react';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Disclaimer.module.css';
 
 const Disclaimer = () => {
+  const [lang, setLang] = useState('en');
+  const [theme, setTheme] = useState('light');
+
   return (
-    <div>
-      <Navbar />
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      <Head>
+        <title>Disclaimer - Lumina Elegance</title>
+      </Head>
+
+      <Navbar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
+
       <main className={styles.container}>
         <h1 className={styles.heading}>Disclaimer</h1>
         <p className={styles.text}>
@@ -62,7 +72,8 @@ const Disclaimer = () => {
           <li className={styles.listItem}><strong>Address:</strong> 123 Beauty St, Glamour City, GC 12345</li>
         </ul>
       </main>
-      <Footer />
+      
+      <Footer lang={lang} />
     </div>
   );
 };
