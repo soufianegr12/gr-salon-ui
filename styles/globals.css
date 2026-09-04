@@ -1,20 +1,43 @@
-/* global.css */
-
-/* Include Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Add any custom global styles here */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f0abfc; /* Example background color */
+@layer base {
+  body {
+    @apply transition-colors duration-500 font-sans antialiased;
+  }
 }
-/*  #FF3276 */
 
-/* Example custom styles */
-.container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px 40px;
+/* Custom Animations & Glow Effects */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Glassmorphism Effect for Professional Salon UI */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
