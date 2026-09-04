@@ -1,22 +1,36 @@
+import React, { useState } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/About.module.css';
 
-const About = () => {
+export default function About() {
+  const [lang, setLang] = useState('en');
+  const [theme, setTheme] = useState('light');
+
   return (
-    <div>
-      <Navbar />
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      <Head>
+        <title>About Us - Lumina Elegance</title>
+      </Head>
+
+      <Navbar lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
+
       <main className={styles.container}>
         <h1 className={styles.heading}>About Us</h1>
-        <p className={styles.description}>Our salon has been providing top-notch beauty services for over a decade. Our team of experienced professionals is dedicated to making you look and feel your best.</p>
+        <p className={styles.description}>
+          Our salon has been providing top-notch beauty services for over a decade. Our team of experienced professionals is dedicated to making you look and feel your best.
+        </p>
         <div className={styles.imageContainer}>
           <Image src="/images/2.png" alt="Team" className={styles.image} width={500} height={300} />
         </div>
 
         <section className={styles.section}>
           <h2 className={styles.sectionHeading}>Our Mission &amp; Values</h2>
-          <p className={styles.sectionText}>We are committed to delivering exceptional beauty services that enhance our clients&apos; confidence and well-being. Our values are rooted in professionalism, creativity, and customer satisfaction.</p>
+          <p className={styles.sectionText}>
+            We are committed to delivering exceptional beauty services that enhance our clients&apos; confidence and well-being. Our values are rooted in professionalism, creativity, and customer satisfaction.
+          </p>
         </section>
 
         <section className={styles.section}>
@@ -35,8 +49,8 @@ const About = () => {
               <p className={styles.sectionText}>Professional Nail Technician specializing in manicures and pedicures.</p>
             </div>
             <div className={styles.teamMember}>
-              <h3 className={styles.sectionHeading}>Emily Davis</h3>
-              <p className={styles.sectionText}>Professional Nail Technician specializing in manicures and pedicures.</p>
+              <h3 className={styles.sectionHeading}>Sarah Wilson</h3>
+              <p className={styles.sectionText}>Senior Spa Specialist focusing on luxury skincare treatments.</p>
             </div>
           </div>
         </section>
@@ -53,9 +67,8 @@ const About = () => {
           </div>
         </section>
       </main>
-      <Footer />
+
+      <Footer lang={lang} />
     </div>
   );
-};
-
-export default About;
+}
