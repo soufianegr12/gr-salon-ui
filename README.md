@@ -4,7 +4,7 @@ Welcome to the **Salon Website**, a modern and stylish Next.js-based web applica
 
 ## 🚀 Live Demo
 
-[Salon Website](https://localsalon.netlify.app/)
+[Salon Website](http://localhost:3000/)
 
 ## 📌 Table of Contents
 
